@@ -36,7 +36,7 @@ function loadJSON(file, callback) {
 
 function load()
 {
-   loadJSON("metro.json", function(response)
+   loadJSON("https://sheets.googleapis.com/v4/spreadsheets/1652-IvXPyrsaDL7OwNQIAT2q2g8OQx5t7XT4U2k3cK0/values/Sheet1/?alt=json&key=AIzaSyBEbDh3zqhc-Bw2PXzMQzFdsKMiqbrmnfw", function(response)
    {
         //alert(response);
          _data = JSON.parse(response); //eval('(' +response+')')
@@ -54,7 +54,7 @@ load();
        		var map = L.map( 'map', {
   center: [28, 77],
   minZoom: 0,
-  zoom: 4
+  zoom: 3
 })
 
        		L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -71,11 +71,12 @@ load();
   popupAnchor: [0, -14]
 })
 
-for(i=0;i<_data.length;i++)
-{
-L.marker([_data[i].details.latitude, _data[i].details.longitude], {icon: myIcon}).bindPopup(_data[i].name+ '<br>'+_data[i].details.line).addTo(map);
-}
-
+// for(i=1;i<_data.length;i++)
+// {
+// // L.marker([_data[i].values.geometry_coordinates_0, _data[i].values.geometry_coordinates_1], {icon: myIcon}).bindPopup(_data[i].values.city_name+ '<br>'+_data[i].values.operator).addTo(map);
+//   L.marker([_data.values[i][6], _data[i].values[i][7]], {icon: myIcon}).bindPopup(_data.values[i][1]+ '<br>'+_data.values[i][2]).addTo(map);
+// }
+L.marker([_data.values[1][7], _data.values[1][6]], {icon: myIcon}).bindPopup(' OPERATOR :'+_data.values[1][1]+ '<br> CITY :'+_data.values[1][2]).addTo(map);
 </script>
 
        </body>
