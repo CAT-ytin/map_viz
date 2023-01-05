@@ -76,7 +76,10 @@ load();
 // // L.marker([_data[i].values.geometry_coordinates_0, _data[i].values.geometry_coordinates_1], {icon: myIcon}).bindPopup(_data[i].values.city_name+ '<br>'+_data[i].values.operator).addTo(map);
 //   L.marker([_data.values[i][6], _data[i].values[i][7]], {icon: myIcon}).bindPopup(_data.values[i][1]+ '<br>'+_data.values[i][2]).addTo(map);
 // }
-L.marker([_data.values[1][7], _data.values[1][6]], {icon: myIcon}).bindPopup(' OPERATOR :'+_data.values[1][1]+ '<br> CITY :'+_data.values[1][2]).addTo(map);
+          for(i=1;i<_data.values.length;i++)
+          {
+L.marker([_data.values[i][7], _data.values[i][6]], {icon: myIcon}).bindPopup(' OPERATOR :'+_data.values[i][1]+ '<br> CITY :'+_data.values[i][2]).addTo(map);
+}
 </script>
 
        </body>
